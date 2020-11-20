@@ -22,11 +22,11 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     },
-    project: ['./pkg/server/tsconfig.json'],
+    project: ['./pkg/server/tsconfig.json', './pkg/client/tsconfig.json'],
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint', 'eslint-plugin-prettier', 'prettier', 'import'],
+  plugins: ['@typescript-eslint', 'eslint-plugin-prettier', 'prettier', 'react', 'import'],
   rules: {
     'prettier/prettier': [
       "warn",

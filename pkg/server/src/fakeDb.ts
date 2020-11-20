@@ -53,7 +53,7 @@ export default {
     },
     add(title: string): Song {
       songs.push({
-        id: `some-id-${songs.length}`,
+        id: `some-id-${songs.length  + 1}`,
         title,
         playlistId: 'other-id-3',
       });

@@ -1,8 +1,31 @@
 overwrite: true
 schema: "./pkg/server/src/schema.ts"
+documents:
+  - './**/*.graphql'
+  - './pkg/client/src/**/*.tsx'
+  - './pkg/client/src/**/*.ts'
+  - '!./pkg/client/src/generated/**'
+  - '!./pkg/server/src/generated/**'
+  - '!./pkg/client/node_modules/**'
+  - '!./pkg/server/node_modules/**'
 
 generates:
   pkg/server/src/generated/graphql.ts:
     plugins:
       - "typescript"
       - "typescript-resolvers"
+  pkg/client/src/generated/introspectionQueryResultData.ts:
+    plugins:
+      - fragment-matcher
+    config:
+      apolloClientVersion: 3
+  pkg/client/src/generated/graphql-operations.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHOC: false
+      withHooks: true
+      withComponent: false
+      withMutationOptionsType: true
